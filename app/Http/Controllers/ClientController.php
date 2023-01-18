@@ -9,13 +9,13 @@ class ClientController extends Controller
 {
     public function store(Request $request)
     {
-        Client::create([
+        $client = Client::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'id_number' => $request->id_number
         ]);
 
-        return redirect('/');
+        return response()->json($client);
     }
 }
